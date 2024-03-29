@@ -79,11 +79,13 @@ class EmojiGame extends Component {
   }
 
   render() {
+     const {emojisList} = this.props
     const {isGameCompleted, topScore, addingEmojisArray} = this.state
+    const isWon = addingEmojisArray.length === emojisList.length
 
     return (
       <div className="whole-container">
-        <NavBar topScore={topScore} score={addingEmojisArray.length} />
+        <NavBar topScore={topScore} score={addingEmojisArray.length} isWon={isWon}/>
         <div className="game-container">
           {isGameCompleted ? this.winOrLose() : this.emojisDisplay()}
         </div>
